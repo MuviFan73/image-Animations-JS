@@ -1,0 +1,51 @@
+
+<html>
+    <title>#35 Zoom In Zoom Out effect in JavaScript</title>
+    <script type="text/javascript">
+        var width=250;
+        var difference=2;
+        var intervalID=0;
+        document.getElementById("img1").style.width=width;
+        function increase()
+        {
+            clearInterval(intervalID);
+            intervalID=setInterval(zoomIn,20);
+        }
+        function zoomIn()
+        {
+            if(width<750)
+            {
+              width=width+difference;
+             document.getElementById("img1").style.width=width;
+            }
+            else
+            {
+                clearInterval(intervalID);
+            }
+        }
+        function decrease()
+        {
+            clearInterval(intervalID);
+            intervalID=setInterval(zoomOut,20);
+        }
+        function zoomOut()
+        {
+            if(width>250)
+            {
+              width=width-difference;
+             document.getElementById("img1").style.width=width;
+            }
+            else
+            {
+                clearInterval(intervalID);
+            }
+        }
+    </script>
+    <head>
+        <body>
+           <br><br>
+           <img onmouseover="increase()" onmouseout="decrease()" id="img1" src="1.jpg" width="250"/>
+
+        </body>
+    </head>
+</html>
